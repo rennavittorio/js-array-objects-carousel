@@ -1,4 +1,4 @@
-//DB iniziale
+//initial DB
 const images = [
     {
         image: './assets/01.webp',
@@ -31,27 +31,32 @@ const images = [
     }
 ];
 
-//recupero elementi 
+
+
+//recall carousel element
 let carouselElement = document.querySelector('.carousel');
 
-for (let i = 0; i < images.length; i++){
+//make slide in DOM
+images.forEach((el, i) => {
     let numSlide = i;
-    const {image, title, text} = images[i];
+    const {image, title, text} = el;
     
     let slide = getSlide(numSlide, image, title, text);
 
     carouselElement.innerHTML += slide;
+});
 
-}
 
-//recupero elementi 
+
+//recal completed carousel + arrows
 let slideElements = document.querySelectorAll('.slide');
 const rightBtnElement = document.querySelector('.arrow-right');
 const leftBtnElement = document.querySelector('.arrow-left');
 
-//setto un indice per controllare gli eventi delle frecce
+//set index for arrows
 let indexActiveSlide = 0;
 
+//add event on carousel-arrows (infinite loop)
 rightBtnElement.addEventListener('click', function(){
     
     let currentSlide = slideElements[indexActiveSlide];
