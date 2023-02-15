@@ -4,13 +4,14 @@ img {
     object-fit: cover;
 }
 
+.slide.active {
+    display: block;
+}
+
 .slide {
     display: none;
 }
 
-.slide.active {
-    display: block;
-}
 
 
 .carousel {
@@ -23,7 +24,8 @@ img {
     top: 50%;
     transform: translateY(-50%);
     /* height: 100%; */
-    padding: 20px;
+    padding: 10px;
+    border-radius: 10px;
     background-color: #eee;
     display: flex;
     justify-content: center;
