@@ -49,6 +49,10 @@ img {
     position: absolute;
     color: #eee;
     bottom: 0;
-    right: 10px;
+    right: 0;
+}
+
+.dark-text-bg {
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
