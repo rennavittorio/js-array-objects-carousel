@@ -61,12 +61,40 @@ rightBtnElement.addEventListener('click', goForward);
 leftBtnElement.addEventListener('click', goBack);
 
 
-
-let playBtnElement = document.querySelector('.play-btn');
+let backwardBtnElement = document.querySelector('.backward-btn');
 let pauseBtnElement = document.querySelector('.pause-btn');
-console.log(playBtnElement, pauseBtnElement);
+let stopBtnElement = document.querySelector('.stop-btn');
+let forwardBtnElement = document.querySelector('.forward-btn');
 
 
+let clock = undefined;
+// console.log('start clock', clock);
+
+backwardBtnElement.addEventListener('click', function(){
+    if (clock === undefined){
+        clock = setInterval(goBack, 1000)
+        // console.log('ongoing clock', clock);
+    }
+})
+
+forwardBtnElement.addEventListener('click', function(){
+    if (clock === undefined){
+        clock = setInterval(goForward, 1000)
+        // console.log('ongoing clock', clock);
+    }
+});
+
+pauseBtnElement.addEventListener('click', function(){
+    clearInterval(clock);
+    clock = undefined;
+});
+
+
+stopBtnElement.addEventListener('click', function(){
+    clearInterval(clock);
+    clock = undefined;
+    goStart();
+})
 
 
 
@@ -130,6 +158,21 @@ function goBack(){
         indexActiveSlide = slideElements.length - 1;
     }
     
+    let nextSlide = slideElements[indexActiveSlide]; 
+    nextSlide.classList.add('active');
+
+    console.log(indexActiveSlide);
+
+}
+
+
+function goStart (){
+
+    let currentSlide = slideElements[indexActiveSlide];
+    currentSlide.classList.remove('active');
+    
+    indexActiveSlide = 0;
+
     let nextSlide = slideElements[indexActiveSlide]; 
     nextSlide.classList.add('active');
 
