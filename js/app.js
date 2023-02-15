@@ -57,42 +57,18 @@ const leftBtnElement = document.querySelector('.arrow-left');
 let indexActiveSlide = 0;
 
 //add event on carousel-arrows (infinite loop)
-rightBtnElement.addEventListener('click', function(){
-    
-    let currentSlide = slideElements[indexActiveSlide];
-    currentSlide.classList.remove('active');
-
-    //controllo l'indice per creare uno scroll infinito
-    if (indexActiveSlide < slideElements.length - 1){
-        indexActiveSlide +=1;
-    
-    } else {
-        indexActiveSlide = 0;
-    }
-    
-    let nextSlide = slideElements[indexActiveSlide]; 
-    nextSlide.classList.add('active');
-
-    console.log(indexActiveSlide);
-});
+rightBtnElement.addEventListener('click', goForward);
+leftBtnElement.addEventListener('click', goBack);
 
 
-leftBtnElement.addEventListener('click', function(){
 
-    let currentSlide = slideElements[indexActiveSlide];
-    currentSlide.classList.remove('active');
+let playBtnElement = document.querySelector('.play-btn');
+let pauseBtnElement = document.querySelector('.pause-btn');
+console.log(playBtnElement, pauseBtnElement);
 
-    if (indexActiveSlide > 0){
-        indexActiveSlide -=1;
-    } else {
-        indexActiveSlide = slideElements.length - 1;
-    }
-    
-    let nextSlide = slideElements[indexActiveSlide]; 
-    nextSlide.classList.add('active');
 
-    console.log(indexActiveSlide);
-});
+
+
 
 
 /////////////////////////////////////////////////////
@@ -119,5 +95,44 @@ function getSlide (numSlide, src, title, text){
             </div>
         </div>
     `
+
+}
+
+
+function goForward (){
+
+    let currentSlide = slideElements[indexActiveSlide];
+    currentSlide.classList.remove('active');
+
+    //controllo l'indice per creare uno scroll infinito
+    if (indexActiveSlide < slideElements.length - 1){
+        indexActiveSlide +=1;
+    
+    } else {
+        indexActiveSlide = 0;
+    }
+    
+    let nextSlide = slideElements[indexActiveSlide]; 
+    nextSlide.classList.add('active');
+
+    console.log(indexActiveSlide);
+
+}
+
+function goBack(){
+
+    let currentSlide = slideElements[indexActiveSlide];
+    currentSlide.classList.remove('active');
+
+    if (indexActiveSlide > 0){
+        indexActiveSlide -=1;
+    } else {
+        indexActiveSlide = slideElements.length - 1;
+    }
+    
+    let nextSlide = slideElements[indexActiveSlide]; 
+    nextSlide.classList.add('active');
+
+    console.log(indexActiveSlide);
 
 }
