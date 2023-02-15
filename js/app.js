@@ -47,29 +47,23 @@ images.forEach((el, i) => {
 });
 
 
-
 //recal completed carousel + arrows
 let slideElements = document.querySelectorAll('.slide');
 const rightBtnElement = document.querySelector('.arrow-right');
 const leftBtnElement = document.querySelector('.arrow-left');
-
-//set index for arrows
-let indexActiveSlide = 0;
-
-//add event on carousel-arrows (infinite loop)
-rightBtnElement.addEventListener('click', goForward);
-leftBtnElement.addEventListener('click', goBack);
-
-
 let backwardBtnElement = document.querySelector('.backward-btn');
 let pauseBtnElement = document.querySelector('.pause-btn');
 let stopBtnElement = document.querySelector('.stop-btn');
 let forwardBtnElement = document.querySelector('.forward-btn');
 
 
+//set index and clock for events
+let indexActiveSlide = 0;
 let clock = undefined;
-// console.log('start clock', clock);
-
+//add event on carousel-arrows (infinite loop)
+rightBtnElement.addEventListener('click', goForward);
+leftBtnElement.addEventListener('click', goBack);
+//add events on btns
 backwardBtnElement.addEventListener('click', function(){
     if (clock === undefined){
         clock = setInterval(goBack, 1000)
