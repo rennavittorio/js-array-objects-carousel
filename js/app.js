@@ -110,10 +110,10 @@ function getSlide (numSlide, src, title, text){
         <div class="slide__title slide ${addClassActive}">
             <img src="${src}" alt="">
             <div class="slide__content">
-                <h1 class="text-end">
+                <h1 class="text-end px-3">
                     ${title}
                 </h1>
-                <p class="slide__text text-end">
+                <p class="slide__text text-end px-3">
                     ${text}
                 </p>
             </div>
