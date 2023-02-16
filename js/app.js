@@ -37,9 +37,9 @@ const images = [
 let carouselElement = document.querySelector('.carousel');
 
 //make slide in DOM
-images.forEach((el, i) => {
+images.forEach(({image, title, text}, i) => {
     let numSlide = i;
-    const {image, title, text} = el;
+    // const {image, title, text} = el; posso destrutturare direttamente in funzione
     
     let slide = getSlide(numSlide, image, title, text);
 
